@@ -1,16 +1,25 @@
 import React from "react";
-import { BrowserRouter, Switch } from "react-router-dom";
-import Header from "./components/header";
-import Footer from "./components/footer";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { theme, menuItems } from "./data/siteConfig";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Header />
-        <Footer />
-      </Switch>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Switch>
+          {menuItems.map((element, index) => (
+            <Route
+              exact
+              key={index}
+              path={element.path}
+              component={element.component}
+            />
+          ))}
+          <Route path="/" render={() => <div>404</div>} />
+        </Switch>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 export default App;

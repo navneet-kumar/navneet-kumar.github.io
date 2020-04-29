@@ -3,19 +3,13 @@ import styled, { css } from "styled-components";
 import { GoThreeBars, GoX } from "react-icons/go";
 import { Link } from "react-router-dom";
 import device from "../utils/device";
-
-const menuItems = [
-  { name: "Contact", link: "/contact" },
-  { name: "Projects", link: "/projects" },
-  { name: "About", link: "/about" },
-  { name: "Blog", link: "/blog" },
-];
+import { menuItems } from "../data/siteConfig";
 
 /************* Style **************/
 const HeaderWrapper = styled.div`
-  background-color: #fff;
+  background-color: ${(props) => props.theme.backgroundColor};
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
-  position: fixed;
+  // position: fixed;
   width: 100%;
   z-index: 3;
 `;
@@ -28,7 +22,7 @@ const Menu = styled.ul`
   padding: 0;
   list-style: none;
   overflow: hidden;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.backgroundColor};
 
   @media ${device.tablet} {
     clear: none;
@@ -46,9 +40,10 @@ const Menu = styled.ul`
 const MenuItem = styled.li`
   display: block;
   padding: 0.5em 0.5em;
-  border-right: 1px solid #f4f4f4;
-  text-decoration: none;
+  border-right: 1px solid ${(props) => props.theme.foregroundColor};
   text-align: center;
+  text-decoration: none;
+  color: ${(props) => props.theme.foregroundColor};
 
   @media ${device.tablet} {
     float: right;
@@ -59,6 +54,7 @@ const MenuItem = styled.li`
 const MenuIcon = styled.div`
   float: right;
   padding: 0.3em;
+  color: ${(props) => props.theme.foregroundColor};
   :hover {
     cursor: pointer;
   }
@@ -91,7 +87,12 @@ class Header extends Component {
         <Menu expanded={this.state.showMenuItems}>
           {menuItems.map((element, index) => (
             <MenuItem key={index}>
-              <Link to={element.link}>{element.name}</Link>
+              <Link
+                style={{ color: "inherit", textDecoration: "inherit" }}
+                to={element.path}
+              >
+                {element.name}
+              </Link>
             </MenuItem>
           ))}
         </Menu>
