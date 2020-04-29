@@ -15,7 +15,7 @@ export const menuItems = [
   },
   {
     name: "About",
-    path: "/about",
+    path: "/",
     component: About,
   },
   {
