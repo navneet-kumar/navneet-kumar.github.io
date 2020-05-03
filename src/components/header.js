@@ -52,7 +52,7 @@ const MenuItem = styled.li`
 `;
 
 const MenuIcon = styled.div`
-  float: right;
+  float: left;
   padding: 0.3em;
   color: ${(props) => props.theme.foregroundColor};
   :hover {
@@ -79,13 +79,13 @@ class Header extends Component {
       <HeaderWrapper>
         <MenuIcon onClick={() => this.toggleMenu()}>
           {this.state.showMenuItems ? (
-            <GoX size={"3em"} />
+            <GoX size={"2em"} />
           ) : (
-            <GoThreeBars size={"3em"} />
+            <GoThreeBars size={"2em"} />
           )}
         </MenuIcon>
         <Menu expanded={this.state.showMenuItems}>
-          {menuItems.map((element, index) => (
+          {menuItems.reverse().map((element, index) => (
             <MenuItem key={index}>
               <Link
                 style={{ color: "inherit", textDecoration: "inherit" }}
