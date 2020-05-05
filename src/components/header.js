@@ -9,7 +9,7 @@ import { menuItems } from "../data/siteConfig";
 const HeaderWrapper = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
-  // position: fixed;
+  position: relative;
   width: 100%;
   z-index: 3;
 `;

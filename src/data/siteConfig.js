@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "../pages/home";
+import Contact from "../pages/contact";
 import Page from "../pages/page";
 
 export const menuItems = [
@@ -21,7 +22,7 @@ export const menuItems = [
   {
     name: "Contact",
     path: "/contact",
-    component: () => <Page content={<div>Contact</div>} />,
+    component: Contact,
   },
 ];
 
@@ -40,9 +41,12 @@ export const profile = {
   gender: "Male",
   education: "University of Pune. B.E. in IT (2013)",
   socialPresence: {
+    email: "mailto:navneetkumar812@gmail.com",
     github: "https://github.com/navneet-kumar/",
     linkedin: "https://www.linkedin.com/in/eng-navneet-kumar",
     twitter: "https://twitter.com/navneetkumar812",
+    stackOverflow:
+      "https://stackoverflow.com/users/5542309/navneet-kumar?tab=profile",
   },
   description:
     "Hi .. I am Navneet !! \n I am a software engineer with $experience years of experience",
