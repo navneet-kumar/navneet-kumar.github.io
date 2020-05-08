@@ -14,7 +14,7 @@ const HeaderWrapper = styled.div`
   z-index: 3;
 `;
 
-const Menu = styled.ul`
+const Menu = styled.ol`
   clear: both;
   max-height: 0;
   transition: max-height 0.2s ease-out;
@@ -85,7 +85,7 @@ class Header extends Component {
           )}
         </MenuIcon>
         <Menu expanded={this.state.showMenuItems}>
-          {menuItems.reverse().map((element, index) => (
+          {menuItems.map((element, index) => (
             <MenuItem key={index}>
               <Link
                 style={{ color: "inherit", textDecoration: "inherit" }}

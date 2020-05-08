@@ -1,11 +1,20 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { theme, menuItems } from "./data/siteConfig";
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    min-height: 100vh;
+    padding-bottom: 50px;
+    position: relative;
+  }
+`;
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <BrowserRouter>
         <Switch>
           {menuItems.map((element, index) => (
